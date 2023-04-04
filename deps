@@ -1,0 +1,1 @@
+// cargo-deps: chrono="0.4.24", itertools = "0.10.5", primal="0.3.2", rust-bigint = "1.2.0", num-integer = "0.1.45", file-fetcher = "0.1.4", fraction = "0.13.1"
