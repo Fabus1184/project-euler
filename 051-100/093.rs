@@ -1,51 +1,40 @@
-// cargo-deps: eval = "0.4.3", itertools = "0.10.5"
+// cargo-deps: itertools = "0.10.5", fraction = "0.13.1"
 
-use eval::Value::Number;
+use fraction::Fraction as D;
 use itertools::Itertools;
-use std::collections::HashSet;
+use std::collections::{HashMap, HashSet};
 
-let mut max = (0, 0);
+#[derive(Clone, Copy)]
+enum Op {
+    Add,
+    Sub,
+    Mul,
+    Div,
+}
 
-for a in 1..7 {
-    for b in a+1..8 {
-        for c in b+1..9 {
-            for d in c+1..10 {
-                let mut set = HashSet::new();
-                
-                for os in ["+", "-", "*", "/"].into_iter().combinations(3) {
-                    for ps in itertools::iproduct!(0..2, 0..2, 0..2, 0..2, 0..2, 0..2) {
-                        let e = format!("
-                        {}
-                            {}
-                                {} {} {}
-                            {}
-                                {}
-                                {}
-                        {}
-                            ",
-                            if ps.1 == 0 { "(" } else { "" },
-                            if ps.0 == 0 { "(" } else { "" },
-                            a, os[0], b,
-                            if ps.0 == 0 { ")" } else { "" },
-                            os[1], c,
-                            if ps.1 == 0 { ")" } else { "" },
-                        );
-                        
-                        if let Ok(Number(y)) = eval::eval(e.as_str()) {
-                            if let Some(x) = y.as_i64() {
-                                println!("{} = {}", e, x);
-                                set.insert(x);
-                            }
-                        }
-                    }
-                }
+let mut map: HashMap<[D; 4], HashSet<D>> = HashMap::new();
+for (a, b, c, d) in itertools::iproduct!(1..10, 1..10, 1..10, 1..10) {
+    for (x, y, z) in itertools::iproduct!(
+            [Op::Add, Op::Sub, Op::Mul, Op::Div],
+            [Op::Add, Op::Sub, Op::Mul, Op::Div],
+            [Op::Add, Op::Sub, Op::Mul, Op::Div]
+    ) {        
+        let eval = |i, o, j| match o {
+            Op::Add => i + j,
+            Op::Sub => i - j,
+            Op::Mul => i * j,
+            Op::Div => i / j,
+        };
 
-                if set.len() > max.0 {
-                    max = (set.len(), a * 1000 + b * 100 + c * 10 + d);
-                }
-            }
-        }
+        let e = [a, b, c, d].into_iter().map(|x| D::from(x)).sorted().collect::<Vec<_>>().try_into().unwrap();
+
+        map.entry(e).or_default().insert(eval(eval(eval(D::from(a), x, D::from(b)), y, D::from(c)), z, D::from(d)));
+        map.entry(e).or_default().insert(eval(eval(D::from(a), x, D::from(b)), y, eval(D::from(c), z, D::from(d))));
     }
 }
 
-println!("{:?}", max);
+fn longest_interval(set: &HashSet<D>) -> i32 {
+    (1..).find(|&i| !set.contains(&D::from(i))).unwrap() - 1
+}
+
+println!("{}", map.iter().max_by_key(|&(_, set)| longest_interval(set)).unwrap().0.iter().map(|x| x.to_string()).join(""));
