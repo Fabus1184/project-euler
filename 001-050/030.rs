@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 println!(
     "{:?}",
     (2..1_000_000)

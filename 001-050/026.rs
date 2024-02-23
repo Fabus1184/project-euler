@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 use std::collections::HashMap;
 
 struct DecimalFractionPlaces {

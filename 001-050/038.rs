@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 fn is_pandigital(n: u64) -> bool {
     if n.to_string().len() != 9 {
         return false;

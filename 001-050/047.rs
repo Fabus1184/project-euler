@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 fn distinct_prime_factors(n: u64) -> u64 {
     let mut factors = Vec::new();
     let mut d = 2;
@@ -37,4 +39,3 @@ loop {
     }
     i += 1;
 }
-

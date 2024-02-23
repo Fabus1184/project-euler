@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 use std::collections::HashSet;
 
 for i in 1.. {

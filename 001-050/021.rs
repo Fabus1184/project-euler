@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 fn amicable(n: usize) -> bool {
     let mut sum = 0;
     for i in 1..n {

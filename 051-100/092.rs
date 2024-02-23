@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 use std::collections::HashMap;
 
 fn square_sum(mut n: i64) -> i64 {

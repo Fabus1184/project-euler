@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 fn binom(n: u64, k: u64) -> u64 {
     (1..=k).fold(1, |acc, i| acc * (n - i + 1) / i)
 }

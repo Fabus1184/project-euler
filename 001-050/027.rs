@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 // cargo-deps: primal = "0.2.3", itertools = "0.10.1"
 
 fn number_of_primes(a: i32, b: i32) -> usize {

@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 // cargo-deps: chrono="0.4.24"
 
 use chrono::Datelike;
@@ -13,4 +15,3 @@ while date.year() < 2001 {
 }
 
 println!("{}", count);
-

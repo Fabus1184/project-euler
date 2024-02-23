@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 // cargo-deps: file-fetcher = "0.1.4", itertools = "0.10.5"
 
 use std::io::Read;
@@ -44,4 +46,4 @@ let decoded = cipher
     .map(|(i, x)| (x as u8 ^ [key.0, key.1, key.2][i % 3] as u8) as char)
     .collect::<String>();
 
-println!("{}\n{}", decoded, decoded.chars().map(|x| x as u32).sum::<u32>());
+println!("{}", decoded.chars().map(|x| x as u32).sum::<u32>());

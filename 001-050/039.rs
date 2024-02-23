@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 let mut max = 0;
 let mut max_p = 0;
 for p in 3..1001 {

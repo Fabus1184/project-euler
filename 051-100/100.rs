@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 // cargo-deps: rust-bigint = "1.2.0"
 
 // https://oeis.org/A011900

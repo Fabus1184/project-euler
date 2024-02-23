@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 // cargo-deps: rust-bigint = "1.2.0"
 
 use rust_bigint::BigInt;

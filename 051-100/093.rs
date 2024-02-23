@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 // cargo-deps: itertools = "0.10.5", fraction = "0.13.1"
 
 use fraction::Fraction as D;

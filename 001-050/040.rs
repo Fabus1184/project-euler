@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 fn nth_digit(n: usize) -> u8 {
     static mut VEC: Vec<u8> = Vec::new();
     static mut LAST: usize = 0;

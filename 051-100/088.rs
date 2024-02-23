@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 use std::collections::HashSet;
 
 fn factor(n: usize, k: usize) -> Vec<Vec<usize>> {

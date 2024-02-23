@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 fn spell(n: usize) -> String {
     match n {
         0 => "zero".to_string(),

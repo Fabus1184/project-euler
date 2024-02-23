@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 fn factorial(n: u8) -> u64 {
     static mut FACTORIALS: [u64; 21] = [0; 21];
     unsafe {

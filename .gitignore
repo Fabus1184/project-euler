@@ -1,3 +1,7 @@
 build/*
 dist-newstyle/*
 .vscode/*
+
+# Added by cargo
+
+check/target

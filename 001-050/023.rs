@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 fn abundant_numbers() -> impl Iterator<Item = usize> {
     (1..).filter(|&x| {
         let mut sum = 1;

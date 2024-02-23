@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 fn coin_sums(n: usize, atoms: &Vec<usize>) -> usize {
     let mut dp = vec![0; n + 1];
     dp[0] = 1;

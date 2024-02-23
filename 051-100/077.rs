@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 // cargo-deps: primal = "0.3.2"
 
 fn coin_sums(n: usize, atoms: &Vec<usize>) -> usize {

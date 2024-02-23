@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 fn continued_fraction_sqrt(x: u64) -> Option<Vec<u64>> {
     let mut a = Vec::new();
     let mut m = 0;

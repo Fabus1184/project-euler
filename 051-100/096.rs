@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 // cargo-deps: file-fetcher = "0.1.4", itertools = "0.10.5"
 
 use std::io::Read;

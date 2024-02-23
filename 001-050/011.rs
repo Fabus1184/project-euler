@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 // cargo-deps: itertools = "0.10.5"
 
 use itertools::iproduct;

@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 fn max_path_sum(triangle: Vec<Vec<i32>>) -> i32 {
     let mut triangle = triangle.clone();
     for row in (0..triangle.len() - 1).rev() {

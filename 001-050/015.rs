@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 use std::collections::HashMap;
 
 fn routes(x: usize, y: usize, memo: &mut HashMap<(usize, usize), usize>) -> usize {

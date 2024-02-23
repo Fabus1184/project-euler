@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 const COINS: [u32; 8] = [1, 2, 5, 10, 20, 50, 100, 200];
 
 fn number_of_ways(n: u32) -> u32 {

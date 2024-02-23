@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 // cargo-deps: itertools="0.10.1"
 
 fn pentagonal(n: usize) -> Vec<usize> {

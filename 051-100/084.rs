@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 // cargo-deps: rand = "0.8.5", itertools = "0.10.5"
 
 use itertools::Itertools;

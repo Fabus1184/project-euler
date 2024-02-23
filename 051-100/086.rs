@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 let mut n = 0;
 
 for i in 1.. {

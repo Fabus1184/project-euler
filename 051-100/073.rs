@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 // cargo-deps: fraction = "0.13.1"
 
 use fraction::ToPrimitive;

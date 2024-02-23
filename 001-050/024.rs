@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 fn lexicographic_permute<T: PartialOrd>(vec: &mut Vec<T>)
 {
     let mut i = vec.len() - 1;

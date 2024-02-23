@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 fn collatz(mut n: usize) -> Vec<usize> {
     let mut v = vec![n];
     while n != 1 {

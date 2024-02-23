@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 struct Fibonacci {
     last: usize,
     curr: usize,

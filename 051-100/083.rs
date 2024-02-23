@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 // cargo-deps: file-fetcher = "0.1.4", priority-queue = "1.3.1"
 
 use std::io::Read;

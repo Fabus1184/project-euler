@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 use std::collections::{HashMap, HashSet};
 
 fn factorial(n: u64) -> u64 {

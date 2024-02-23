@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 // cargo-deps: primal="0.3.2"
 
 fn bottom_right(n: u64) -> u64 {

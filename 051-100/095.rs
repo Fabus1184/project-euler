@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 use std::collections::HashSet;
 
 fn sum_of_proper_divisors(n: u32) -> u32 {

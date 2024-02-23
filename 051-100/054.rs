@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 // cargo-deps: file-fetcher = "0.1.4"
 
 use std::io::Read;
@@ -8,7 +10,8 @@ let hands = file_fetcher::open_str("https://projecteuler.net/project/resources/p
     .bytes()
     .map(|x| x.unwrap() as char)
     .collect::<String>()
-    .split("\n")
+    .split("
+")
     .filter(|x| x.len() > 0)
     .map(|x| (
         x[..14].split(" ").map(|c| Card::from(c)).collect::<Vec<_>>(),

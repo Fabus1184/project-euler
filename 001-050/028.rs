@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 fn sum_of_diagonals(n: usize) -> usize {
     let mut sum = 1;
     let mut x = 1;

@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 fn is_palindrome(n: usize) -> bool {
     let s = n.to_string();
     s == s.chars().rev().collect::<String>()

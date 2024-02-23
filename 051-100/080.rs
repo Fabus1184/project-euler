@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 // cargo-deps: arpfloat = "0.1.9"
 
 use arpfloat::{Float, Semantics, RoundingMode};

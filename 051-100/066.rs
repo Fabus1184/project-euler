@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 fn convergents(a_n: impl Iterator<Item = u128>) -> impl Iterator<Item = (u128, u128)> {
     let (mut a, mut b) = (1, 0);
     let (mut c, mut d) = (0, 1);

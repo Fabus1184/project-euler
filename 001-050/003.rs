@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 fn prime_factors(n: usize) -> Vec<usize> {
     let mut factors = Vec::new();
     let mut n = n;

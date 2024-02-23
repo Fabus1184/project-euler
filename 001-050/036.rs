@@ -1,3 +1,5 @@
+#!/usr/bin/env rust-script
+
 fn is_palindrome(n: &str) -> bool {
     n == n.chars().rev().collect::<String>()
 }
