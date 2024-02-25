@@ -1,2 +1,12 @@
+<<<<<<< HEAD
 .stack-work/
 *~
+=======
+build/*
+dist-newstyle/*
+.vscode/*
+
+# Added by cargo
+
+check/target
+>>>>>>> 6b06634a0878f249e1294407455bfce0f3f40ed1
