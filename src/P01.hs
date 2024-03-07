@@ -1,4 +1,4 @@
-module P01 where
+module P01 (main) where
 
 main :: Int
 main =
