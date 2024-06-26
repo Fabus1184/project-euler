@@ -14,7 +14,7 @@ fn main() -> anyhow::Result<()> {
 
     for entry in walkdir::WalkDir::new("src").into_iter().flatten() {
         let name = entry.file_name().to_string_lossy();
-        if name.starts_with('p') {
+        if name.starts_with('p') && name.chars().nth(1).is_some_and(|c| c.is_ascii_digit()) {
             let number = name.split(".rs").next().context("Invalid file name")?;
 
             let path = entry

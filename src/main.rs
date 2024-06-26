@@ -1,6 +1,6 @@
 include!(concat!(env!("OUT_DIR"), "/mods.rs"));
 
-mod traits;
+mod lib;
 
 fn main() {
     for (name, solution) in SOLUTIONS {

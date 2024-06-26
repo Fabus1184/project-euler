@@ -12,5 +12,7 @@ anyhow = "1.0.86"
 
 [dependencies]
 anyhow = "1.0.86"
+bnum = "0.11.0"
 itertools = "0.13.0"
 num-traits = "0.2.19"
+tap = "1.0.1"
