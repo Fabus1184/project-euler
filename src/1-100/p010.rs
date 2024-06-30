@@ -1,5 +1,8 @@
-use crate::lib::prelude::*;
+use primes::PrimeSet;
 
 pub fn solution() -> u64 {
-    u64::primes().take_while(|&x| x < 2_000_000).sum()
+    primes::Sieve::new()
+        .iter()
+        .take_while(|&x| x < 2_000_000)
+        .sum()
 }

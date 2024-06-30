@@ -1,11 +1,11 @@
 mod arithmetic;
 mod grid;
-mod primes;
+pub mod solution;
 
 pub mod prelude {
     pub use super::arithmetic::*;
     pub use super::grid::*;
-    pub use super::primes::*;
+    pub use proc_macros::*;
 }
 
 #[macro_export]

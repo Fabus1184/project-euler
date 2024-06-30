@@ -9,6 +9,6 @@ fn triangle_numbers() -> impl Iterator<Item = u32> {
 
 pub fn solution() -> u32 {
     triangle_numbers()
-        .find(|&n| n.divisors().len() > 500)
+        .find(|&n| n.proper_divisors().count() > 500)
         .unwrap()
 }

@@ -13,6 +13,15 @@ anyhow = "1.0.86"
 [dependencies]
 anyhow = "1.0.86"
 bnum = "0.11.0"
+chrono = "0.4.38"
 itertools = "0.13.0"
 num-traits = "0.2.19"
+primes = "0.4.0"
+reqwest = { version = "0.12.5", features = ["blocking"] }
+syn = "2.0.68"
 tap = "1.0.1"
+
+[lib]
+name = "proc_macros"
+path = "src/proc-macros.rs"
+proc-macro = true

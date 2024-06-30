@@ -2,7 +2,7 @@ pub trait Arithmetic: Sized + Copy {
     fn gcd(self, other: Self) -> Self;
     fn lcm(self, other: Self) -> Self;
     fn prime_factors(self) -> Vec<Self>;
-    fn divisors(self) -> Vec<Self>;
+    fn proper_divisors(self) -> impl Iterator<Item = Self>;
 }
 
 crate::impl_for_all!(
@@ -40,20 +40,14 @@ crate::impl_for_all!(
             factors
         }
 
-        fn divisors(self) -> Vec<Self> {
-            let n = self;
-            let mut divisors = Vec::new();
-            let mut d = 1;
-            while d * d <= n {
-                if n % d == 0 {
-                    divisors.push(d);
-                    if d * d != n {
-                        divisors.push(n / d);
-                    }
+        fn proper_divisors(self) -> impl Iterator<Item = Self> {
+            (2..(self as f64).sqrt() as Self + 1).filter(move |&x| self % x == 0).flat_map(move |x| {
+                if x * x == self {
+                    vec![x].into_iter()
+                } else {
+                    vec![x, self / x].into_iter()
                 }
-                d += 1;
-            }
-            divisors
+            }).chain(std::iter::once(1))
         }
     }
 );

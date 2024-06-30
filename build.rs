@@ -14,9 +14,11 @@ fn main() -> anyhow::Result<()> {
 
     for entry in walkdir::WalkDir::new("src").into_iter().flatten() {
         let name = entry.file_name().to_string_lossy();
-        if name.starts_with('p') && name.chars().nth(1).is_some_and(|c| c.is_ascii_digit()) {
-            let number = name.split(".rs").next().context("Invalid file name")?;
-
+        if let Some(number) = name
+            .strip_prefix('p')
+            .and_then(|n| n.strip_suffix(".rs"))
+            .and_then(|n| n.parse::<u32>().ok())
+        {
             let path = entry
                 .path()
                 .canonicalize()
@@ -25,7 +27,7 @@ fn main() -> anyhow::Result<()> {
                 .context("Invalid path")?
                 .to_string();
 
-            let module = quote::format_ident!("{}", number);
+            let module = quote::format_ident!("p{}", number);
 
             let code = quote::quote! {
                 #[path = #path]
@@ -35,7 +37,7 @@ fn main() -> anyhow::Result<()> {
 
             file.write_all(code.as_bytes())?;
 
-            problems.push(number.to_string());
+            problems.push(number);
         }
     }
 
@@ -44,16 +46,16 @@ fn main() -> anyhow::Result<()> {
     let len = problems.len();
     let problems = problems
         .into_iter()
-        .map(|p| {
-            let ident = quote::format_ident!("{p}");
+        .map(|number| {
+            let module = quote::format_ident!("p{number}");
             quote::quote! {
-                (#p, || Box::new(#ident::solution()))
+                (#number, || Box::new(#module::solution()))
             }
         })
         .collect::<Vec<_>>();
 
     let code = quote::quote! {
-        pub const SOLUTIONS: [(&str, fn() -> Box<dyn std::fmt::Display>); #len] = [
+        pub const SOLUTIONS: [(u32, fn() -> Box<dyn std::fmt::Display>); #len] = [
             #(#problems),*
         ];
     };

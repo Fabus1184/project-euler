@@ -1,5 +1,5 @@
-use crate::lib::prelude::*;
+use primes::PrimeSet;
 
-pub fn solution() -> u32 {
-    (1..).filter(|x| x.is_prime()).nth(10000).unwrap()
+pub fn solution() -> u64 {
+    primes::TrialDivision::new().iter().nth(10_000).unwrap()
 }
